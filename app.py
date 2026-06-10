@@ -16,110 +16,60 @@ st.title("🏨 Hotel Booking Cancellation Prediction")
 with st.form("prediction_form"):
 
     hotel = st.text_input("Hotel")
+
     lead_time = st.number_input("Lead Time", min_value=0)
 
-    arrival_date_year = st.number_input(
-        "Arrival Date Year",
-        min_value=2015,
-        max_value=2030
+    arrival_date_year = st.number_input("Arrival Date Year", min_value=2015, max_value=2030)
+
+    arrival_date_month = st.selectbox(
+        "Arrival Date Month",
+        ["January","February","March","April","May","June","July","August",
+         "September","October","November","December"]
     )
 
-    arrival_date_month = st.text_input("Arrival Date Month")
+    arrival_date_week_number = st.number_input("Arrival Date Week Number", min_value=1, max_value=53)
 
-    arrival_date_week_number = st.number_input(
-        "Arrival Date Week Number",
-        min_value=1,
-        max_value=53
-    )
+    arrival_date_day_of_month = st.number_input("Arrival Date Day Of Month", min_value=1, max_value=31)
 
-    arrival_date_day_of_month = st.number_input(
-        "Arrival Date Day Of Month",
-        min_value=1,
-        max_value=31
-    )
+    stays_in_weekend_nights = st.number_input("Weekend Nights", min_value=0)
 
-    stays_in_weekend_nights = st.number_input(
-        "stays in Weekend Nights",
-        min_value=0
-    )
-
-    stays_in_week_nights = st.number_input(
-        "stays in Week Nights",
-        min_value=0
-    )
+    stays_in_week_nights = st.number_input("Week Nights", min_value=0)
 
     adults = st.number_input("Adults", min_value=1)
 
-    children = st.number_input(
-        "Children",
-        min_value=0.0
-    )
+    children = st.number_input("Children", min_value=0.0)
 
-    babies = st.number_input(
-        "Babies",
-        min_value=0
-    )
+    babies = st.number_input("Babies", min_value=0)
 
-    meal = st.selectbox("Meal", ["BB", "FB", "HB", "SC", "Undefined"])
+    meal = st.selectbox("Meal", ["BB","FB","HB","SC","Undefined"])
+
     country = st.text_input("Country")
-   market_segment = st.selectbox(
-    "Market Segment",
-    ["Online TA", "Offline TA/TO", "Direct", "Groups", "Corporate"]
-    )
-    distribution_channel = st.selectbox(
-    "Distribution Channel",
-    ["TA/TO", "Direct", "Corporate", "GDS"]
-    )
 
-    previous_cancellations = st.number_input(
-        "Previous Cancellations",
-        min_value=0
-    )
+    market_segment = st.selectbox("Market Segment", ["Online TA","Offline TA/TO","Direct","Groups","Corporate"])
 
-    previous_bookings_not_canceled = st.number_input(
-        "Previous Bookings Not Canceled",
-        min_value=0
-    )
+    distribution_channel = st.selectbox("Distribution Channel", ["TA/TO","Direct","Corporate","GDS"])
 
-    reserved_room_type = st.text_input(
-        "Reserved Room Type"
-    )
+    previous_cancellations = st.number_input("Previous Cancellations", min_value=0)
 
-    assigned_room_type = st.text_input(
-        "Assigned Room Type"
-    )
+    previous_bookings_not_canceled = st.number_input("Previous Bookings Not Canceled", min_value=0)
 
-    booking_changes = st.number_input(
-        "Booking Changes",
-        min_value=0
-    )
+    reserved_room_type = st.text_input("Reserved Room Type")
 
-    deposit_type = st.selectbox("Deposit Type", ["No Deposit", "Refundable", "Non Refund"])
+    assigned_room_type = st.text_input("Assigned Room Type")
 
-    days_in_waiting_list = st.number_input(
-        "Days In Waiting List",
-        min_value=0
-    )
+    booking_changes = st.number_input("Booking Changes", min_value=0)
 
-    customer_type = st.selectbox(
-    "Customer Type",
-    ["Transient", "Contract", "Group", "Transient-Party"]
-    )
+    deposit_type = st.selectbox("Deposit Type", ["No Deposit","Refundable","Non Refund"])
 
-    adr = st.number_input(
-        "ADR",
-        min_value=0.0
-    )
+    days_in_waiting_list = st.number_input("Days In Waiting List", min_value=0)
 
-    required_car_parking_spaces = st.number_input(
-        "Required Car Parking Spaces",
-        min_value=0
-    )
+    customer_type = st.selectbox("Customer Type", ["Transient","Contract","Group","Transient-Party"])
 
-    total_of_special_requests = st.number_input(
-        "Total Special Requests",
-        min_value=0
-    )
+    adr = st.number_input("ADR", min_value=0.0)
+
+    required_car_parking_spaces = st.number_input("Required Car Parking Spaces", min_value=0)
+
+    total_of_special_requests = st.number_input("Total Special Requests", min_value=0)
 
     submit = st.form_submit_button("Predict")
 if submit:
