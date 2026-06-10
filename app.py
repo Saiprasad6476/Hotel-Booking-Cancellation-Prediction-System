@@ -113,6 +113,13 @@ if submit:
 
         prediction = model.predict(df)[0]
 
+        probability = model.predict_proba(df)[0]
+
+        st.write(
+            f"Cancellation Probability: {probability[1]:.2%}"
+        )
+
+
         if prediction == 1:
             st.error("❌ Booking will be cancelled")
         else:
