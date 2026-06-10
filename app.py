@@ -4,7 +4,7 @@ import pandas as pd
 
 # Load model
 
-with open("hotel_booking_model.pkl", "rb") as file:
+with open("model.pkl", "rb") as file:
     model = pickle.load(file)
 
 
