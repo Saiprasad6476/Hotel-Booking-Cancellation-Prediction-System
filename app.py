@@ -4,7 +4,7 @@ import pandas as pd
 
 # Load model
 
-with open("model.pkl.gz", "rb") as file:
+with open("model.pkl", "rb") as file:
     model = pickle.load(file)
 
 st.set_page_config(page_title="Hotel Booking Cancellation Prediction")
