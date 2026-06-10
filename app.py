@@ -148,8 +148,8 @@ if submit:
     }
 
     df = pd.DataFrame(data)
-
-    prediction = model.predict(df)[0]
+    try:
+        prediction = model.predict(df)[0]
 
     if prediction == 1:
         st.error("Booking Will Be Cancelled")
