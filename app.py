@@ -149,7 +149,6 @@ if submit:
 
     df = pd.DataFrame(data)
 
-    try:
     prediction = model.predict(df)[0]
 
     if prediction == 1:
