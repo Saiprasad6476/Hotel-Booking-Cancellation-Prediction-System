@@ -39,12 +39,12 @@ with st.form("prediction_form"):
     )
 
     stays_in_weekend_nights = st.number_input(
-        "Weekend Nights",
+        "stays in Weekend Nights",
         min_value=0
     )
 
     stays_in_week_nights = st.number_input(
-        "Week Nights",
+        "stays in Week Nights",
         min_value=0
     )
 
