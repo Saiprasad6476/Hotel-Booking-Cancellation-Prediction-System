@@ -134,8 +134,8 @@ if st.button("Predict"):
     "booking_changes": booking_changes,
     "days_in_waiting_list": days_in_waiting_list,
     "adr": adr,
-    "required_car_parking_spaces": parking_spaces,
-    "total_of_special_requests": special_requests
+    "required_car_parking_spaces": required_car_parking_spaces,
+    "total_of_special_requests": total_of_special_requests
 }
 
         df = pd.DataFrame([input_data])
