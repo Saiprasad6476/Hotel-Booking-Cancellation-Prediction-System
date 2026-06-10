@@ -148,13 +148,15 @@ if submit:
     }
 
     df = pd.DataFrame(data)
-  try:
-    prediction = model.predict(df)[0]
+ # Prediction section
+if st.button("Predict"):
+    try:
+        prediction = model.predict(df)[0]
 
-    if prediction == 1:
-        st.write("❌ Booking will be cancelled")
-    else:
-        st.write("✅ Booking will not be cancelled")
+        if prediction == 1:
+            st.error("❌ Booking will be cancelled")
+        else:
+            st.success("✅ Booking will not be cancelled")
 
-except Exception as e:
-    st.error(f"Error: {e}")
+    except Exception as e:
+        st.error(f"Error: {e}")
