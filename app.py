@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 
 # Load model
-with open("hotel_booking_model.pkl", "rb") as f:
+with open("model.pkl", "rb") as f:
     model = pickle.load(f)
 
 
