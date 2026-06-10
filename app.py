@@ -1,11 +1,10 @@
 import streamlit as st
-import pickle
+import joblib
 import pandas as pd
 
 # Load model
 
-with open("model.pkl", "rb") as file:
-    model = pickle.load(file)
+model = joblib.load("hotel_booking_model.pkl")
 
 st.set_page_config(page_title="Hotel Booking Cancellation Prediction")
 
