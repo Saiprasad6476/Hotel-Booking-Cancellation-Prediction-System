@@ -7,6 +7,7 @@ import gzip
 with gzip.open("model.pkl", "rb") as f:
     model = pickle.load(f)
 
+st.write("Model Type:", type(model))
 
 st.set_page_config(page_title="Hotel Booking Cancellation Prediction")
 st.title("🏨 Hotel Booking Cancellation Prediction")
