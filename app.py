@@ -115,42 +115,31 @@ with st.form("prediction_form"):
     )
 
     submit = st.form_submit_button("Predict")
-
-if submit:
-
-    data = {
-        'hotel': [hotel],
-        'lead_time': [lead_time],
-        'arrival_date_year': [arrival_date_year],
-        'arrival_date_month': [arrival_date_month],
-        'arrival_date_week_number': [arrival_date_week_number],
-        'arrival_date_day_of_month': [arrival_date_day_of_month],
-        'stays_in_weekend_nights': [stays_in_weekend_nights],
-        'stays_in_week_nights': [stays_in_week_nights],
-        'adults': [adults],
-        'children': [children],
-        'babies': [babies],
-        'meal': [meal],
-        'country': [country],
-        'market_segment': [market_segment],
-        'distribution_channel': [distribution_channel],
-        'previous_cancellations': [previous_cancellations],
-        'previous_bookings_not_canceled': [previous_bookings_not_canceled],
-        'reserved_room_type': [reserved_room_type],
-        'assigned_room_type': [assigned_room_type],
-        'booking_changes': [booking_changes],
-        'deposit_type': [deposit_type],
-        'days_in_waiting_list': [days_in_waiting_list],
-        'customer_type': [customer_type],
-        'adr': [adr],
-        'required_car_parking_spaces': [required_car_parking_spaces],
-        'total_of_special_requests': [total_of_special_requests]
-    }
-
-    df = pd.DataFrame(data)
- # Prediction section
 if st.button("Predict"):
     try:
+        import pandas as pd
+
+        input_data = {
+            "lead_time": lead_time,
+            "arrival_date_year": arrival_year,
+            "arrival_date_week_number": week_number,
+            "arrival_date_day_of_month": day,
+            "stays_in_weekend_nights": weekend_nights,
+            "stays_in_week_nights": week_nights,
+            "adults": adults,
+            "children": children,
+            "babies": babies,
+            "previous_cancellations": previous_cancellations,
+            "previous_bookings_not_canceled": previous_bookings_not_canceled,
+            "booking_changes": booking_changes,
+            "days_in_waiting_list": days_in_waiting_list,
+            "adr": adr,
+            "required_car_parking_spaces": parking_spaces,
+            "total_of_special_requests": special_requests
+        }
+
+        df = pd.DataFrame([input_data])
+
         prediction = model.predict(df)[0]
 
         if prediction == 1:
