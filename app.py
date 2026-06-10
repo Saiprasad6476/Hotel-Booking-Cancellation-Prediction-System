@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 
 # Load model
-model = joblib.load("hotel_booking_model.pkl")
+model = joblib.load("model.pkl")
 
 st.set_page_config(page_title="Hotel Booking Cancellation Prediction")
 st.title("🏨 Hotel Booking Cancellation Prediction")
